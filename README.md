@@ -1,11 +1,9 @@
 # Dijkstra Heaps Comparison
 
 ## Project Overview
-This project presents an empirical analysis of three priority queue implementations—**Binary Heap**, **Fibonacci Heap**, and **Hollow Heap**—within the context of **Dijkstra's shortest path algorithm** on large-scale road networks. The study evaluates operational efficiency, memory consumption, structural characteristics, and practical performance on real-world datasets from major Asian metropolitan areas.
+This project presents an empirical analysis of three priority queue implementations, **Binary Heap**, **Fibonacci Heap**, and **Hollow Heap**, within the context of **Dijkstra's shortest path algorithm** on large-scale road networks. The study evaluates operational efficiency, memory consumption, structural characteristics, and practical performance on real-world datasets from major Asian metropolitan areas.
 
 The goal is to compare these heaps in terms of **insert, extract-min, and decrease-key operations**, and assess their practical suitability for dynamic shortest-path computations.
-
----
 
 ## Heaps Overview
 
@@ -36,8 +34,6 @@ The goal is to compare these heaps in terms of **insert, extract-min, and decrea
 - **Strengths:** No cascading cuts, simpler decrease-key, predictable memory behavior.
 - **Limitations:** Slight overhead from hollow nodes during cleanup.
 
----
-
 ## Implementation Details
 
 - **Binary Heap:** Array-based with position map for decrease-key.
@@ -54,8 +50,6 @@ The goal is to compare these heaps in terms of **insert, extract-min, and decrea
 - Adjacency list: `vector<vector<pair<int, double>>>`
 - Directed graphs with weighted edges (meters)
 
----
-
 ## Datasets
 
 1. **Hong Kong Road Network:** 43,620 vertices, 91,542 edges
@@ -63,8 +57,6 @@ The goal is to compare these heaps in terms of **insert, extract-min, and decrea
 3. **Chongqing Road Network:** 1,185,464 vertices, 2,428,866 edges
 
 *All datasets are edge lists with distance weights.*
-
----
 
 ## Experiments
 
@@ -75,8 +67,6 @@ The goal is to compare these heaps in terms of **insert, extract-min, and decrea
 ### Experiment B — Operation Profiling
 - 100,000 random operations (40% insert, 30% extract-min, 30% decrease-key)
 - Tracked per-operation timing and heap structural changes.
-
----
 
 ## Key Findings
 
@@ -92,15 +82,12 @@ The goal is to compare these heaps in terms of **insert, extract-min, and decrea
 | Fibonacci Heap | 3.176     | 20.217          | 3.420           | 62,681.793       |
 | Hollow Heap  | 0.160       | 0.892           | 0.191           | 5,689.371        |
 
----
-
 ## Recommendations
 
 - Use **Binary Heap** for small to medium graphs—simple and efficient.
 - Use **Hollow Heap** for very large graphs—efficient decrease-key without cascading cuts.
 - Avoid **Fibonacci Heap** in production; suitable mostly for theoretical analysis.
 
----
 
 ## How to Run
 
